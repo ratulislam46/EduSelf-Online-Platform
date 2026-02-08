@@ -59,7 +59,7 @@
 
 ---
 
-🛠️ ব্যবহৃত টেকনোলজি
+## 🛠️ ব্যবহৃত টেকনোলজি
 
 🎨 Frontend Technology
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
@@ -81,4 +81,5 @@
 ![OAuth2](https://img.shields.io/badge/OAuth2-007ACC?style=for-the-badge&logo=oauth&logoColor=white)  
 Role-Based Access Control
 
+---
 
