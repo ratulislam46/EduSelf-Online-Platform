@@ -67,17 +67,19 @@
 ![Shadcn UI](https://img.shields.io/badge/Shadcn_UI-5A0EF8?style=for-the-badge&logo=figma&logoColor=white)
 
 
-## ⚙️ Backend
+# ⚙️ Backend
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 
 
-## 🗄️ Database
+# 🗄️ Database
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 
 
-## 🔐 Authentication & Utilities
-![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white) / OAuth2 (Role-Based Access Control)
+# 🔐 Authentication
+![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
+![OAuth2](https://img.shields.io/badge/OAuth2-007ACC?style=for-the-badge&logo=oauth&logoColor=white)  
+Role-Based Access Control
 
 
 ---
