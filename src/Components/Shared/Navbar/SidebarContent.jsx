@@ -17,9 +17,9 @@ const SidebarContent = ({ isMobile = false, closeMenu }) => {
     ];
 
     return (
-        <div className="p-8 flex flex-col h-full bg-white shadow-xl lg:shadow-none">
+        <div className="p-8 flex flex-col h-full bg-white shadow-xl lg:shadow-none min-h-screen">
             {/* Brand Logo & Close Button (Mobile) */}
-            <div className="mb-10 flex items-center justify-between">
+            <div className="flex-none mb-10 flex items-center justify-between">
                 <div>
                     <h5 className="text-2xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 uppercase leading-none">
                         Eduself
@@ -29,7 +29,7 @@ const SidebarContent = ({ isMobile = false, closeMenu }) => {
                 {isMobile && (
                     <button
                         onClick={closeMenu}
-                        className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-full transition-all duration-300 transform hover:rotate-90"
+                        className="p-2 text-gray-400 hover:text-red-400 bg-red-50 rounded-full transition-all duration-500 transform hover:rotate-180 cursor-pointer"
                     >
                         <FaTimes size={22} />
                     </button>
@@ -37,7 +37,7 @@ const SidebarContent = ({ isMobile = false, closeMenu }) => {
             </div>
 
             {/* Navigation Links */}
-            <nav className="flex-1 overflow-y-auto">
+            <nav className="flex-1 overflow-y-auto custom-scrollbar pr-2">
                 <ul className="space-y-2 font-medium">
                     {navLinks.map((item) => (
                         <li key={item.href}>
@@ -75,7 +75,7 @@ const SidebarContent = ({ isMobile = false, closeMenu }) => {
             </nav>
 
             {/* Footer */}
-            <div className="mt-auto pt-6 border-t border-gray-50">
+            <div className="flex-none mt-auto pt-6 border-t border-gray-50">
                 <div className="py-3 px-4 bg-gray-50 rounded-2xl text-center">
                     <p className="text-[10px] text-gray-400 uppercase tracking-widest font-black">
                         Version 2.0.1

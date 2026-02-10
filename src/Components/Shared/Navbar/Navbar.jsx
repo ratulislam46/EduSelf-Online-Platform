@@ -19,7 +19,7 @@ const Navbar = () => {
                 </div>
                 <button
                     onClick={() => setIsOpen(true)}
-                    className="p-2.5 bg-indigo-50 text-indigo-600 rounded-xl active:scale-90 transition-all shadow-sm shadow-indigo-100"
+                    className="p-2.5 bg-indigo-50 text-indigo-600 rounded-xl active:scale-90 transition-all shadow-sm shadow-indigo-100 cursor-pointer"
                 >
                     <FaBars size={20} />
                 </button>
