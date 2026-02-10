@@ -76,7 +76,7 @@
 
 
 🔐 Authentication
-![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebhrefkens&logoColor=white)
 ![OAuth2](https://img.shields.io/badge/OAuth2-007ACC?style=for-the-badge&logo=oauth&logoColor=white)  
 Role-Based Access Control
 
