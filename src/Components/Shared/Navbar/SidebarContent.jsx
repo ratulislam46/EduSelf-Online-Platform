@@ -60,13 +60,13 @@ const SidebarContent = ({ isMobile = false, closeMenu }) => {
                 {/* Auth Section */}
                 <ul className="space-y-3 font-medium">
                     <li>
-                        <Link href="/sign-in" onClick={isMobile ? closeMenu : undefined} className="flex items-center gap-4 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 transition-all">
+                        <Link href="/login" onClick={isMobile ? closeMenu : undefined} className="flex items-center gap-4 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 transition-all">
                             <MdLogin className="text-xl" />
                             <span className="text-sm font-semibold">Sign in</span>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/sign-up" onClick={isMobile ? closeMenu : undefined} className="flex items-center gap-4 px-4 py-3 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:shadow-indigo-300 transition-all transform active:scale-95 text-center justify-center">
+                        <Link href="/register" onClick={isMobile ? closeMenu : undefined} className="flex items-center gap-4 px-4 py-3 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:shadow-indigo-300 transition-all transform active:scale-95 text-center justify-center">
                             <VscSaveAs className="text-xl" />
                             <span className="text-sm font-semibold">Sign up</span>
                         </Link>
