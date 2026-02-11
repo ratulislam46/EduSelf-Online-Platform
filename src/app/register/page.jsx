@@ -26,7 +26,7 @@ const RegisterPage = () => {
                         <div className="bg-white/20 p-2 rounded-lg backdrop-blur-md">
                             <BookOpen size={28} />
                         </div>
-                        <span className="text-2xl font-bold tracking-tight">EduLib</span>
+                        <span className="text-2xl font-bold tracking-tight">EduSelf</span>
                     </div>
                     <h1 className="text-5xl font-bold leading-tight mb-6">
                         Your journey to <br /> knowledge starts here.
@@ -42,7 +42,7 @@ const RegisterPage = () => {
                 <div className="absolute top-1/2 -right-24 w-64 h-64 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
 
                 <div className="relative z-10 text-sm text-indigo-200">
-                    © 2026 EduLib Digital Library. All rights reserved.
+                    © 2026 EduSelf Digital Library. All rights reserved.
                 </div>
             </div>
 

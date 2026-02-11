@@ -23,7 +23,7 @@ const LoginPage = () => {
             <div className="bg-white/15 p-2 rounded-xl backdrop-blur-lg border border-white/20">
               <BookOpen size={28} />
             </div>
-            <span className="text-2xl font-bold tracking-tight">EduLib</span>
+            <span className="text-2xl font-bold tracking-tight">EduSelf</span>
           </div>
           
           <div className="space-y-6">
@@ -114,7 +114,7 @@ const LoginPage = () => {
               type="submit" 
               className="w-full bg-gray-900 hover:bg-black text-white font-bold py-4 rounded-2xl shadow-xl shadow-gray-200 transition-all flex items-center justify-center gap-3 group active:scale-[0.98]"
             >
-              <span>Sign In to EduLib</span>
+              <span>Sign In to EduSelf</span>
               <LogIn size={20} className="group-hover:translate-x-1 transition-transform" />
             </button>
           </form>

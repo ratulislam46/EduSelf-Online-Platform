@@ -23,7 +23,7 @@ const HeroSection = () => {
         <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 tracking-tight mb-6">
           Unleash Knowledge with <br />
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-blue-500">
-            EduLib Digital
+            EduSelf Digital
           </span>
         </h1>
 
