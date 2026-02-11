@@ -9,7 +9,7 @@ import { VscSaveAs } from 'react-icons/vsc';
 const SidebarContent = ({ isMobile = false, closeMenu }) => {
     const navLinks = [
         { href: "/", label: "Home", icon: <FaHome /> },
-        // { href: "/books", label: "Books", icon: <FaBook /> },
+        { href: "/books", label: "Books", icon: <FaBook /> },
         { href: "/saved", label: "Saved", icon: <FaBookmark /> },
         { href: "/profile", label: "Profile", icon: <FaUserCircle /> },
     ];

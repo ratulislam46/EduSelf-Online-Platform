@@ -1,0 +1,96 @@
+[
+  {
+    "id": "dept_bangla",
+    "name": "Bangla",
+    "slug": "bangla",
+    "thumbnail": "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800",
+    "description": "Department of Bengali Language and Literature",
+    "years": [
+      {
+        "id": "bangla_y1",
+        "year_number": 1,
+        "label": "1st Year",
+        "thumbnail": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400",
+        "books": [
+          {
+            "id": "b_ban_101",
+            "title": "Bangla Sahityer Itihas",
+            "author": "Dr. Anisuzzaman",
+            "cover": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=400",
+            "subject": "History of Literature",
+            "pdfUrl": "/pdfs/bangla/y1/itihas.pdf"
+          }
+        ]
+      },
+      { "id": "bangla_y2", "year_number": 2, "label": "2nd Year", "thumbnail": "", "books": [] },
+      { "id": "bangla_y3", "year_number": 3, "label": "3rd Year", "thumbnail": "", "books": [] },
+      { "id": "bangla_y4", "year_number": 4, "label": "4th Year", "thumbnail": "", "books": [] }
+    ]
+  },
+  {
+    "id": "dept_physics",
+    "name": "Physics",
+    "slug": "physics",
+    "thumbnail": "https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?w=800",
+    "description": "Department of Physical Sciences",
+    "years": [
+      {
+        "id": "phys_y1",
+        "year_number": 1,
+        "label": "1st Year",
+        "thumbnail": "https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?w=400",
+        "books": [
+          {
+            "id": "b_phys_101",
+            "title": "Classical Mechanics",
+            "author": "Herbert Goldstein",
+            "cover": "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400",
+            "subject": "Mechanics",
+            "pdfUrl": "/pdfs/physics/y1/mechanics.pdf"
+          }
+        ]
+      },
+      { "id": "phys_y2", "year_number": 2, "label": "2nd Year", "thumbnail": "", "books": [] },
+      { "id": "phys_y3", "year_number": 3, "label": "3rd Year", "thumbnail": "", "books": [] },
+      { "id": "phys_y4", "year_number": 4, "label": "4th Year", "thumbnail": "", "books": [] }
+    ]
+  },
+  {
+    "id": "dept_accounting",
+    "name": "Accounting",
+    "slug": "accounting",
+    "thumbnail": "https://images.unsplash.com/photo-1454165833767-027ffea9e77b?w=800",
+    "description": "Department of Business Studies",
+    "years": [
+      {
+        "id": "acc_y1",
+        "year_number": 1,
+        "label": "1st Year",
+        "thumbnail": "",
+        "books": [
+          {
+            "id": "b_acc_101",
+            "title": "Principles of Accounting",
+            "author": "Weygandt",
+            "cover": "https://images.unsplash.com/photo-1554224155-1696413565d3?w=400",
+            "subject": "Basic Accounting",
+            "pdfUrl": "/pdfs/accounting/y1/principles.pdf"
+          }
+        ]
+      },
+      { "id": "acc_y2", "year_number": 2, "label": "2nd Year", "thumbnail": "", "books": [] },
+      { "id": "acc_y3", "year_number": 3, "label": "3rd Year", "thumbnail": "", "books": [] },
+      { "id": "acc_y4", "year_number": 4, "label": "4th Year", "thumbnail": "", "books": [] }
+    ]
+  },
+  { "id": "dept_english", "name": "English", "slug": "english", "thumbnail": "https://images.unsplash.com/photo-1543004629-142a762df0d4?w=800", "years": [] },
+  { "id": "dept_chem", "name": "Chemistry", "slug": "chemistry", "thumbnail": "https://images.unsplash.com/photo-1603126731744-118503a4667d?w=800", "years": [] },
+  { "id": "dept_math", "name": "Higher Math", "slug": "higher-math", "thumbnail": "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800", "years": [] },
+  { "id": "dept_social", "name": "Social Work", "slug": "social-work", "thumbnail": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800", "years": [] },
+  { "id": "dept_soil", "name": "Soil Science", "slug": "soil-science", "thumbnail": "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800", "years": [] },
+  { "id": "dept_zoo", "name": "Zoology", "slug": "zoology", "thumbnail": "https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?w=800", "years": [] },
+  { "id": "dept_history", "name": "History", "slug": "history", "thumbnail": "https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=800", "years": [] },
+  { "id": "dept_fin", "name": "Finance", "slug": "finance", "thumbnail": "https://images.unsplash.com/photo-1611974714851-48206139d733?w=800", "years": [] },
+  { "id": "dept_mkt", "name": "Marketing", "slug": "marketing", "thumbnail": "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=800", "years": [] },
+  { "id": "dept_mgt", "name": "Management", "slug": "management", "thumbnail": "https://images.unsplash.com/photo-1542744173-8e7e53815d1e?w=800", "years": [] }
+]
