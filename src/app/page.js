@@ -1,13 +1,9 @@
-import FeaturesOverviewSection from "@/Components/Home/FeturesOverview/FeturesOverviewSection";
-import HeroSection from "@/Components/Home/Hero/HeroSection";
-import HowItWorkSection from "@/Components/Home/HowItWork/HowItWorkSection";
+import BooksSection from "@/Components/Books/Books";
 
 export default function Home() {
   return (
     <section>
-      <HeroSection />
-      <FeaturesOverviewSection />
-      <HowItWorkSection />
+      <BooksSection />
     </section>
   );
 }

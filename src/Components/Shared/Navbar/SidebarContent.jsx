@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { FaHome, FaUserCircle, FaNewspaper, FaBook, FaBookmark, FaLayerGroup, FaBars, FaTimes } from 'react-icons/fa';
+import { FaHome, FaUserCircle, FaBook, FaBookmark, FaLayerGroup, FaTimes } from 'react-icons/fa';
 import { MdLogin } from 'react-icons/md';
 import { VscSaveAs } from 'react-icons/vsc';
 
@@ -9,9 +9,7 @@ import { VscSaveAs } from 'react-icons/vsc';
 const SidebarContent = ({ isMobile = false, closeMenu }) => {
     const navLinks = [
         { href: "/", label: "Home", icon: <FaHome /> },
-        { href: "/books", label: "Books", icon: <FaBook /> },
-        { href: "/departments", label: "Departments", icon: <FaLayerGroup /> },
-        { href: "/notice", label: "Notice", icon: <FaNewspaper /> },
+        // { href: "/books", label: "Books", icon: <FaBook /> },
         { href: "/saved", label: "Saved", icon: <FaBookmark /> },
         { href: "/profile", label: "Profile", icon: <FaUserCircle /> },
     ];
