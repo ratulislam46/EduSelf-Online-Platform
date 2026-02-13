@@ -7,10 +7,10 @@ const BooksSection = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // ভবিষ্যতে এখানে fetch('https://api.yoursite.com/data') হবে
+    // TODO: Data will be fetch here 
     const fetchData = async () => {
       try {
-        const response = await fetch('/data/libraryData.json'); // Public folder path
+        const response = await fetch('/data/libraryData.json');
         const data = await response.json();
         setLibraryData(data);
       } catch (error) {
@@ -27,7 +27,6 @@ const BooksSection = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-10 px-4">
       <div className="max-w-7xl mx-auto">
-        {/* প্রথম কম্পোনেন্টকে কল করা হচ্ছে */}
         <DeptList allData={libraryData} />
       </div>
     </div>
