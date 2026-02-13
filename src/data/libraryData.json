@@ -1,64 +1,50 @@
 [
   {
-    "id": "dept_bangla",
+    "id": "dept_marketing",
     "name": "Marketing",
-    "thumbnail": "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800",
-    "description": "",
+    "thumbnail": "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=800",
+    "description": "Department of Marketing and Consumer Insights",
     "years": [
       {
         "id": "marketing_y1",
         "year_label": "1st Year",
         "thumbnail": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400",
         "books": [
-          {
-            "id": "unique id",
-            "bookName": "Principles of Marketing - 1",
-            "author": "Dr. Anisuzzaman",
-            "cover": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=400",
-            "pdfUrl": "/pdfs/bangla/y1/itihas.pdf"
-          },
-          {
-            "id": "unique id",
-            "bookName": "Principles Accounting",
-            "author": "Dr. Anisuzzaman",
-            "cover": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=400",
-            "pdfUrl": "/pdfs/bangla/y1/itihas.pdf"
-          },
-          {
-            "id": "",
-            "bookName": "Introduction to Bussiness",
-            "author": "Dr. Anisuzzaman",
-            "cover": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=400",
-            "pdfUrl": "/pdfs/bangla/y1/itihas.pdf"
-          }
+          { "id": "mkt_101", "bookName": "Principles of Marketing - 1", "author": "Kotler & Armstrong", "cover": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=400", "pdfUrl": "/pdfs/mkt/y1/principles.pdf" },
+          { "id": "acc_101", "bookName": "Financial Accounting", "author": "Jerry J. Weygandt", "cover": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400", "pdfUrl": "/pdfs/mkt/y1/accounting.pdf" }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "id": "dept_physics",
+    "name": "Physics",
+    "thumbnail": "https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?w=800",
+    "description": "Department of Physical Sciences and Research",
+    "years": [
       {
-        "id": "marketing_y2",
-        "year_label": "2nd Year",
-        "thumbnail": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400",
+        "id": "physics_y1",
+        "year_label": "1st Year",
+        "thumbnail": "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400",
         "books": [
-          {
-            "id": "unique id",
-            "bookName": "Fundametal of Finance",
-            "author": "Dr. Anisuzzaman",
-            "cover": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=400",
-            "pdfUrl": "/pdfs/bangla/y1/itihas.pdf"
-          },
-          {
-            "id": "unique id",
-            "bookName": "Bussiness Communication",
-            "author": "Dr. Anisuzzaman",
-            "cover": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=400",
-            "pdfUrl": "/pdfs/bangla/y1/itihas.pdf"
-          },
-          {
-            "id": "",
-            "bookName": "Bussiness Mathematics",
-            "author": "Dr. Anisuzzaman",
-            "cover": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=400",
-            "pdfUrl": "/pdfs/bangla/y1/itihas.pdf"
-          }
+          { "id": "phys_101", "bookName": "Mechanics", "author": "H.C. Verma", "cover": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400", "pdfUrl": "/pdfs/physics/y1/mechanics.pdf" },
+          { "id": "phys_102", "bookName": "Waves and Optics", "author": "Ajoy Ghatak", "cover": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400", "pdfUrl": "/pdfs/physics/y1/optics.pdf" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dept_english",
+    "name": "English",
+    "thumbnail": "https://images.unsplash.com/photo-1543004629-142a762df0d4?w=800",
+    "description": "Department of English Language and Literature",
+    "years": [
+      {
+        "id": "english_y1",
+        "year_label": "1st Year",
+        "thumbnail": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400",
+        "books": [
+          { "id": "eng_101", "bookName": "History of English Literature", "author": "Edward Albert", "cover": "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400", "pdfUrl": "/pdfs/english/y1/history.pdf" }
         ]
       }
     ]
