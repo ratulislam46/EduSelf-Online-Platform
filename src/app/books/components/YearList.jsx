@@ -17,7 +17,7 @@ const YearList = ({ department, onBack }) => {
 
   return (
     <div className="animate-in slide-in-from-right-4 duration-500">
-      <button onClick={onBack} className="mb-6 text-indigo-600 font-bold">← Back to Departments</button>
+      <button onClick={onBack} className="mb-6 text-indigo-600 font-bold cursor-pointer">← Back to Departments</button>
       <h2 className="text-2xl font-black mb-8">{department?.name} - শিক্ষাবর্ষ</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {department?.years.map((year) => (

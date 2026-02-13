@@ -11,7 +11,7 @@ const BookList = ({ yearData, deptName, onBack }) => {
 
   return (
     <div className="animate-in zoom-in-95 duration-500">
-      <button onClick={onBack} className="mb-6 text-indigo-600 font-bold">← Back to Years</button>
+      <button onClick={onBack} className="mb-6 text-indigo-600 font-bold cursor-pointer">← Back to Years</button>
       <h2 className="text-2xl font-black mb-8">{deptName} - {yearData.year_label} এর বইসমূহ</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {yearData.books.map((book) => (
