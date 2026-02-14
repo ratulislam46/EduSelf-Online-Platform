@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import DeptList from './components/DeptList';
+import LoadingLibrary from '@/Components/Loader/LoadingLibrary';
 
 const BooksSection = () => {
   const [libraryData, setLibraryData] = useState([]);
@@ -22,7 +23,7 @@ const BooksSection = () => {
     fetchData();
   }, []);
 
-  if (loading) return <div className="text-center p-20 font-bold">Loading Library...</div>;
+  if (loading) return <LoadingLibrary/>
 
   return (
     <div className="min-h-screen bg-gray-50 py-10 px-4">
