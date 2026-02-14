@@ -3,7 +3,7 @@ import { BookOpen, ArrowRight, Sparkles, ChevronRight } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <div className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-white">
+    <div className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-100/50 blur-[120px]" />
@@ -49,7 +49,7 @@ const HeroSection = () => {
         {/* Hero Image / Mockup Placeholder */}
         <div className="mt-16 relative">
           <div className="relative mx-auto max-w-5xl rounded-3xl border border-gray-200 bg-white/50 p-2 shadow-2xl backdrop-blur-sm">
-            <div className="rounded-2xl border border-gray-100 bg-gray-50 overflow-hidden aspect-video flex items-center justify-center">
+            <div className="rounded-2xl border border-gray-100 bg-red-200 overflow-hidden aspect-video flex items-center justify-center">
               {/* This represents your platform UI mockup */}
               <div className="flex flex-col items-center gap-4 text-gray-300">
                 <BookOpen size={64} strokeWidth={1} />

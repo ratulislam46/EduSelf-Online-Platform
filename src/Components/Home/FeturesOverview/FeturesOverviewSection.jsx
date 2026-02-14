@@ -27,8 +27,8 @@ const FeaturesOverviewSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="py-24">
+      <div className="px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -38,9 +38,6 @@ const FeaturesOverviewSection = () => {
           <p className="mt-2 text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
             Designed for the Modern Student
           </p>
-          <div className="mt-4 max-w-2xl mx-auto h-1.5 bg-gray-100 rounded-full overflow-hidden">
-            <div className="w-24 h-full bg-indigo-600 rounded-full mx-auto" />
-          </div>
         </div>
 
         {/* Features Grid */}
