@@ -8,10 +8,10 @@ const DeptList = ({ allData }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
 
-  // ক্যাটাগরি লিস্ট (ভবিষ্যতে এখানে নতুন নাম যোগ করলেই ট্যাবে চলে আসবে)
+  // Categories list 
   const categories = ["All", "BSc", "BBA", "BA", "BSS"];
 
-  // ফিল্টারিং লজিক (Search + Category Filter একসাথে কাজ করবে)
+  // Search + Category Filter work on together
   const filteredData = useMemo(() => {
     return allData?.filter((dept) => {
       const matchesSearch = dept.name.toLowerCase().includes(searchQuery.toLowerCase());
@@ -29,10 +29,10 @@ const DeptList = ({ allData }) => {
       />
     );
   };
-  console.log(activeCategory);
+  // console.log(activeCategory);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10 animate-in fade-in duration-700">
+    <div className="px-4 py-10 animate-in fade-in duration-700">
 
       {/* 1. Header Section */}
       <div className="text-center mb-12">
@@ -72,9 +72,9 @@ const DeptList = ({ allData }) => {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${activeCategory === cat
-                  ? "bg-indigo-600 text-white shadow-lg shadow-indigo-200 scale-105"
-                  : "bg-white text-gray-600 border border-gray-100 hover:border-indigo-200 hover:bg-indigo-50"
+              className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 hover:cursor-pointer ${activeCategory === cat
+                ? "bg-indigo-600 text-white shadow-lg shadow-indigo-200 scale-105"
+                : "bg-white text-gray-600 border border-gray-100 hover:border-indigo-200 hover:bg-indigo-50"
                 }`}
             >
               {cat}
@@ -90,7 +90,7 @@ const DeptList = ({ allData }) => {
             <div
               key={dept.id}
               onClick={() => setSelectedDept(dept)}
-              className="group relative h-[380px] cursor-pointer overflow-hidden rounded-[2rem] bg-gray-100 shadow-xl transition-all duration-500 hover:-translate-y-2"
+              className="group relative h-[350px] cursor-pointer overflow-hidden rounded-2xl bg-gray-100 shadow-xl transition-all duration-500"
             >
               <img
                 src={dept?.thumbnail}
@@ -106,10 +106,12 @@ const DeptList = ({ allData }) => {
               <div className="absolute inset-0 flex flex-col justify-end p-8">
                 <h3 className="text-2xl font-black text-white mb-5">{dept?.name}</h3>
                 <div className="flex items-center">
-                  <button className="flex items-center gap-2 rounded-xl bg-white px-5 py-2.5 text-xs font-black text-black shadow-2xl transition-all hover:bg-indigo-600 hover:text-white">
-                    EXPLORE NOW
-                    <ChevronRight size={14} />
+
+                  <button className="flex items-center gap-2 rounded-2xl text-black group-hover:text-white backdrop-blur-md px-5 py-2.5 text-sm font-bold bg-white shadow-xl transition-all duration-300 group-hover:bg-white/10 border border-white/20 group-hover:border-white cursor-pointer">
+                    Explore Now
+                    <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </button>
+
                 </div>
               </div>
             </div>
@@ -124,7 +126,7 @@ const DeptList = ({ allData }) => {
             <p className="text-gray-400 text-sm mt-1">Try adjusting your search or category filter.</p>
             <button
               onClick={() => { setSearchQuery(""); setActiveCategory("All"); }}
-              className="mt-6 text-indigo-600 font-bold hover:underline"
+              className="mt-6 text-indigo-600 font-bold hover:underline hover:cursor-pointer"
             >
               Reset all filters
             </button>
