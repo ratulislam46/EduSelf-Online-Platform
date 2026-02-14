@@ -32,7 +32,7 @@ const DeptList = ({ allData }) => {
   // console.log(activeCategory);
 
   return (
-    <div className="px-4 py-10 animate-in fade-in duration-700">
+    <div className="animate-in fade-in duration-700">
 
       {/* 1. Header Section */}
       <div className="text-center mb-12">

@@ -23,13 +23,11 @@ const BooksSection = () => {
     fetchData();
   }, []);
 
-  if (loading) return <LoadingLibrary/>
+  if (loading) return <LoadingLibrary />
 
   return (
-    <div className="min-h-screen bg-gray-50 py-10 px-4">
-      <div className="max-w-7xl mx-auto">
-        <DeptList allData={libraryData} />
-      </div>
+    <div className="min-h-screen">
+      <DeptList allData={libraryData} />
     </div>
   );
 };
