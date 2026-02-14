@@ -15,6 +15,7 @@ const RegisterPage = () => {
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
+    console.log(formData);
 
     return (
         <div className="min-h-screen bg-white flex flex-col md:flex-row">
@@ -63,7 +64,7 @@ const RegisterPage = () => {
                                 <input
                                     type="text"
                                     name="name"
-                                    placeholder="John Doe"
+                                    placeholder="Md Ratul Howlader"
                                     className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:bg-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
                                     onChange={handleChange}
                                 />
@@ -97,9 +98,10 @@ const RegisterPage = () => {
                                         onChange={handleChange}
                                     >
                                         <option value="">Select Dept</option>
-                                        <option value="CS">Computer Science</option>
-                                        <option value="ME">Mechanical</option>
-                                        <option value="EE">Electrical</option>
+                                        <option value="CS">CSC</option>
+                                        <option value="CS">BSC</option>
+                                        <option value="CS">BBA</option>
+                                        <option value="CS">BSS</option>
                                     </select>
                                 </div>
                             </div>
@@ -140,7 +142,7 @@ const RegisterPage = () => {
 
                         <button
                             type="submit"
-                            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-indigo-200 transition-all flex items-center justify-center gap-2 group mt-4"
+                            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-indigo-200 transition-all flex items-center justify-center gap-2 group mt-4 hover:cursor-pointer"
                         >
                             Sign Up
                             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
