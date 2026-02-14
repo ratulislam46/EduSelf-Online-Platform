@@ -3,7 +3,7 @@
     "id": "dept_marketing",
     "name": "Marketing",
     "category": "BBA",
-    "thumbnail": "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=800",
+    "thumbnail": "https://images.pexels.com/photos/905163/pexels-photo-905163.jpeg?auto=compress&cs=tinysrgb&w=800",
     "description": "Department of Marketing and Consumer Insights",
     "years": [
       {
@@ -62,7 +62,7 @@
     "id": "dept_chemistry",
     "name": "Chemistry",
     "category": "BSc",
-    "thumbnail": "https://images.unsplash.com/photo-1532187863486-abf9d39d6618?w=800",
+    "thumbnail": "https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=800",
     "description": "Study of substances, chemical reactions, and molecular structures.",
     "years": []
   },
@@ -78,7 +78,7 @@
     "id": "dept_social_work",
     "name": "Social Work",
     "category": "BSS",
-    "thumbnail": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800",
+    "thumbnail": "https://images.pexels.com/photos/6646917/pexels-photo-6646917.jpeg?auto=compress&cs=tinysrgb&w=800",
     "description": "Empowering communities and understanding social welfare systems.",
     "years": []
   },
@@ -86,7 +86,7 @@
     "id": "dept_economics",
     "name": "Economics",
     "category": "BSS",
-    "thumbnail": "https://images.unsplash.com/photo-1454165833767-027ffea9e77b?w=800",
+    "thumbnail": "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800",
     "description": "Analysis of production, distribution, and consumption of goods and services.",
     "years": []
   },
@@ -102,7 +102,7 @@
     "id": "dept_zoology",
     "name": "Zoology",
     "category": "BSc",
-    "thumbnail": "https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?w=800",
+    "thumbnail": "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=800",
     "description": "Comprehensive study of animal biology, behavior, and evolution.",
     "years": []
   },
@@ -110,7 +110,7 @@
     "id": "dept_management",
     "name": "Management",
     "category": "BBA",
-    "thumbnail": "https://images.unsplash.com/photo-1542744173-8e7e53815d1e?w=800",
+    "thumbnail": "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
     "description": "Developing leadership skills and organizational strategy.",
     "years": []
   },
@@ -126,7 +126,7 @@
     "id": "dept_physics",
     "name": "Physics",
     "category": "BSc",
-    "thumbnail": "https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?w=800",
+    "thumbnail": "https://images.pexels.com/photos/60582/newton-s-cradle-balls-sphere-action-60582.jpeg?auto=compress&cs=tinysrgb&w=800",
     "description": "Department of Physical Sciences and Research",
     "years": [
       {
@@ -156,7 +156,7 @@
     "id": "dept_english",
     "name": "English",
     "category": "BA",
-    "thumbnail": "https://images.unsplash.com/photo-1543004629-142a762df0d4?w=800",
+    "thumbnail": "https://images.pexels.com/photos/159866/books-book-pages-read-literature-159866.jpeg?auto=compress&cs=tinysrgb&w=800",
     "description": "Department of English Language and Literature",
     "years": [
       {
