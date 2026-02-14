@@ -1,76 +1,87 @@
 import React from 'react';
+import Link from 'next/link'; // Next.js navigation এর জন্য
 import { BookOpen, ArrowRight, Sparkles, ChevronRight } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <div className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-      {/* Background Decorative Elements */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-100/50 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-100/50 blur-[120px]" />
+    <div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-20">
+
+      {/* Background Glows */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 overflow-hidden">
+        <div className="absolute top-[-5%] left-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-100/40 blur-[120px]" />
+        <div className="absolute bottom-[-5%] right-[-10%] w-[50%] h-[50%] rounded-full bg-blue-100/40 blur-[120px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 mb-8 animate-fade-in">
-          <Sparkles size={14} className="text-indigo-600" />
-          <span className="text-xs font-bold text-indigo-700 uppercase tracking-wider">
+
+        {/* Animated Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <Sparkles size={14} className="text-indigo-600 fill-indigo-600" />
+          <span className="text-[10px] sm:text-xs font-black text-indigo-700 uppercase tracking-[0.15em]">
             The Future of Academic Learning
           </span>
         </div>
 
-        {/* Main Heading */}
-        <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 tracking-tight mb-6">
+        {/* Responsive Main Heading */}
+        <h1 className="text-4xl sm:text-6xl md:text-8xl font-black text-gray-900 tracking-tight mb-8 leading-[1.1]">
           Unleash Knowledge with <br />
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-blue-500">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-500">
             EduSelf Digital
           </span>
         </h1>
 
         {/* Tagline */}
-        <p className="max-w-2xl mx-auto text-lg md:text-xl text-gray-600 mb-10 leading-relaxed font-light">
-          Access thousands of curated textbooks, research papers, and department-specific 
-          resources. Empowering students to read, learn, and excel anywhere.
+        <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-gray-500 mb-12 leading-relaxed font-medium px-4">
+          All your department's yearbooks are now in one place. Read, learn, and advance yourself with thousands of curated resources anytime, on any device.
         </p>
 
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button className="w-full sm:w-auto px-8 py-4 bg-gray-900 text-white rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-gray-800 hover:shadow-2xl hover:shadow-indigo-200 transition-all group active:scale-95">
-            Start Reading
-            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-          </button>
-          
-          <button className="w-full sm:w-auto px-8 py-4 bg-white text-gray-700 border border-gray-200 rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-gray-50 transition-all active:scale-95">
-            Explore Departments
-            <ChevronRight size={20} className="text-gray-400" />
-          </button>
+        {/* Interactive Buttons (CTAs) */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-5 px-4">
+          <Link href="/books" className="w-full sm:w-auto">
+            <button className="w-full px-10 py-5 bg-gray-900 text-white rounded-[1.5rem] font-bold flex items-center justify-center gap-3 hover:bg-indigo-600 hover:shadow-[0_20px_50px_rgba(79,70,229,0.3)] transition-all group active:scale-95 cursor-pointer">
+              Start Reading
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            </button>
+          </Link>
+
+          <Link href="/books" className="w-full sm:w-auto">
+            <button className="w-full px-10 py-5 bg-white text-gray-700 border-2 border-gray-100 rounded-[1.5rem] font-bold flex items-center justify-center gap-2 hover:bg-gray-50 hover:border-gray-200 transition-all active:scale-95 cursor-pointer">
+              Explore Departments
+              <ChevronRight size={20} className="text-gray-400" />
+            </button>
+          </Link>
         </div>
 
-        {/* Hero Image / Mockup Placeholder */}
-        <div className="mt-16 relative">
-          <div className="relative mx-auto max-w-5xl rounded-3xl border border-gray-200 bg-white/50 p-2 shadow-2xl backdrop-blur-sm">
-            <div className="rounded-2xl border border-gray-100 bg-red-200 overflow-hidden aspect-video flex items-center justify-center">
-              {/* This represents your platform UI mockup */}
-              <div className="flex flex-col items-center gap-4 text-gray-300">
-                <BookOpen size={64} strokeWidth={1} />
-                <span className="text-sm font-medium">Dashboard Preview</span>
-              </div>
+        {/* Hero Banner Mockup Section */}
+        <div className="mt-20 relative px-4 animate-in fade-in zoom-in duration-1000">
+          <div className="relative mx-auto shadow-2xl border-4 border-white">
+            <div className="overflow-hidden aspect-video border border-gray-100 shadow-inner group">
+              {/* Banner Image */}
+              <img
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop"
+                alt="EduSelf Dashboard"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+
+              {/* Overlay on Image for Polish */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
             </div>
           </div>
-          
-          {/* Floating Stats Card */}
-          <div className="absolute -bottom-6 -right-4 md:right-10 bg-white p-4 rounded-2xl shadow-xl border border-gray-100 hidden sm:block animate-bounce-slow">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
-                <span className="text-lg font-bold">12k</span>
+
+          {/* Floating Floating Stats Card */}
+          <div className="absolute -bottom-8 -right-2 md:right-12 lg:right-20 bg-white/90 backdrop-blur-xl p-5 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/50 hidden md:block animate-bounce-slow">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-indigo-200">
+                <BookOpen size={24} strokeWidth={2} />
               </div>
               <div className="text-left">
-                <p className="text-xs font-bold text-gray-400 uppercase">Active Readers</p>
-                <p className="text-sm font-bold text-gray-900">Across 20+ Depts</p>
+                <p className="text-[10px] font-black text-indigo-400 uppercase tracking-widest leading-none mb-1">Live Library</p>
+                <p className="text-lg font-black text-gray-800">20+ Departments</p>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );
