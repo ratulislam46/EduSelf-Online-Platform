@@ -68,7 +68,7 @@ const DeptList = ({ allData }) => {
 
         {/* Category Tabs */}
         <div className="flex flex-wrap justify-center gap-3">
-          {categories.map((cat) => (
+          {categories?.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}

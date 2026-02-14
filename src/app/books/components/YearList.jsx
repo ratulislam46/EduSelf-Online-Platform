@@ -6,6 +6,7 @@ import { Calendar, ArrowRight, BookOpen } from 'lucide-react';
 
 const YearList = ({ department, onBack }) => {
   const [selectedYear, setSelectedYear] = useState(null);
+  const [selectedDept, setSelectedDept] = useState(null);
 
   if (selectedYear) {
     return (
@@ -18,7 +19,9 @@ const YearList = ({ department, onBack }) => {
   };
 
   // console.log(department?.years?.length);
-  if (department?.years?.length === 0) return <EmptyDepartment />
+  if (!department?.years || department.years.length === 0) {
+    return <EmptyDepartment onBack={onBack} />;
+  }
 
   return (
     <div className="animate-in slide-in-from-right-4 duration-500">
