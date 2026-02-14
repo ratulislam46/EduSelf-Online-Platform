@@ -2,6 +2,7 @@
 import React, { useState, useMemo } from 'react';
 import YearList from './YearList';
 import { ChevronRight, Search, X, Filter } from 'lucide-react';
+import Image from 'next/image';
 
 const DeptList = ({ allData }) => {
   const [selectedDept, setSelectedDept] = useState(null);
@@ -11,7 +12,7 @@ const DeptList = ({ allData }) => {
   // Categories list 
   const categories = ["All", "BSc", "BBA", "BA", "BSS"];
 
-  // Search + Category Filter work on together
+  // Search + Category Filter work together
   const filteredData = useMemo(() => {
     return allData?.filter((dept) => {
       const matchesSearch = dept.name.toLowerCase().includes(searchQuery.toLowerCase());
@@ -92,10 +93,13 @@ const DeptList = ({ allData }) => {
               onClick={() => setSelectedDept(dept)}
               className="group relative h-[350px] cursor-pointer overflow-hidden rounded-2xl bg-gray-100 shadow-xl transition-all duration-500"
             >
-              <img
+              <Image
                 src={dept?.thumbnail}
-                alt={dept?.name}
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                alt={dept?.name || "Department Thumbnail"}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority={true}
+                className="object-cover transition-transform duration-1000 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80" />
 

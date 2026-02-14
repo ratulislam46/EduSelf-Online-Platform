@@ -36,7 +36,7 @@ const Navbar = () => {
                 />
 
                 {/* Sidebar Panel */}
-                <div className={`absolute top-0 left-0 w-[80%] max-w-[300px] h-full transition-transform duration-500 cubic-bezier(0.4, 0, 0.2, 1) transform ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
+                <div className={`absolute top-0 left-0 w-[80%] max-w-xs h-full transition-transform duration-500 cubic-bezier(0.4, 0, 0.2, 1) transform ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
                     <SidebarContent isMobile={true} closeMenu={() => setIsOpen(false)} />
                 </div>
             </div>

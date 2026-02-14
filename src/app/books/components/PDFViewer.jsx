@@ -6,7 +6,7 @@ const PDFViewer = ({ book, onBack }) => {
         <div className="animate-in fade-in duration-500 h-[90vh] flex flex-col">
             <div className="flex justify-between items-center mb-4  p-4">
                 <button onClick={onBack} className="text-red-500 font-bold px-4 py-2 rounded-xl text-sm border cursor-pointer">✕ Close Reader</button>
-                <h3 className="font-bold truncate max-w-[200px] md:max-w-md">{book.bookName}</h3>
+                <h3 className="font-bold truncate max-w-2xl md:max-w-md">{book.bookName}</h3>
                 <a href={book.pdfUrl} download className="bg-indigo-600 text-white px-4 py-2 rounded-xl text-sm font-bold">Download</a>
             </div>
 
