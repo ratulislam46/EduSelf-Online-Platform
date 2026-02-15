@@ -1,6 +1,3 @@
-**🌐 Live Site:** [edu-self-online-platform.vercel.app](https://edu-self-online-platform.vercel.app/)
-
----
 
 # 🎓 অর্নাস অনলাইন বই পড়ার প্ল্যাটফর্ম
 
