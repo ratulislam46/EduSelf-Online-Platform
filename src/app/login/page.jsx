@@ -93,12 +93,6 @@ const LoginPage = () => {
               </div>
             </div>
 
-            {/* Remember Me Toggle (Optional but nice) */}
-            <div className="flex items-center gap-2 ml-1">
-              <input type="checkbox" id="remember" className="w-4 h-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
-              <label htmlFor="remember" className="text-sm text-gray-600 select-none cursor-pointer">Keep me logged in</label>
-            </div>
-
             <button
               type="submit"
               className="w-full bg-gray-900 hover:bg-black hover:cursor-pointer text-white font-bold py-4 rounded-2xl shadow-xl shadow-gray-200 transition-all flex items-center justify-center gap-3 group active:scale-[0.98]"
