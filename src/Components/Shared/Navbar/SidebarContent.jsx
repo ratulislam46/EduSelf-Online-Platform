@@ -58,7 +58,7 @@ const SidebarContent = ({ isMobile = false, closeMenu }) => {
                 {/* Auth Section */}
                 <ul className="space-y-3 font-medium">
                     <li>
-                        <Link href="/login" onClick={isMobile ? closeMenu : undefined} className="flex items-center gap-4 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 transition-all">
+                        <Link href="/login" onClick={isMobile ? closeMenu : undefined} className="flex items-center gap-4 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 transition-all border border-gray-200 hover:border-gray-300">
                             <MdLogin className="text-xl" />
                             <span className="text-sm font-semibold">Sign in</span>
                         </Link>
