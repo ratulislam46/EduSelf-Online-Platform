@@ -37,17 +37,17 @@ const SidebarContent = ({ isMobile = false, closeMenu }) => {
             {/* Navigation Links */}
             <nav className="flex-1 overflow-y-auto custom-scrollbar pr-2">
                 <ul className="space-y-2 font-medium">
-                    {navLinks.map((item) => (
+                    {navLinks?.map((item) => (
                         <li key={item.href}>
                             <Link
-                                href={item.href}
+                                href={item?.href}
                                 onClick={isMobile ? closeMenu : undefined}
                                 className="group flex items-center gap-4 px-4 py-3 text-gray-600 rounded-xl transition-all duration-300 hover:bg-indigo-50 hover:text-indigo-600"
                             >
                                 <span className="text-xl transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                                    {item.icon}
+                                    {item?.icon}
                                 </span>
-                                <span className="text-sm font-semibold tracking-wide">{item.label}</span>
+                                <span className="text-sm font-semibold tracking-wide">{item?.label}</span>
                             </Link>
                         </li>
                     ))}
@@ -58,13 +58,18 @@ const SidebarContent = ({ isMobile = false, closeMenu }) => {
                 {/* Auth Section */}
                 <ul className="space-y-3 font-medium">
                     <li>
-                        <Link href="/login" onClick={isMobile ? closeMenu : undefined} className="flex items-center gap-4 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 transition-all border border-gray-200 hover:border-gray-300">
+                        <Link href="/login"
+                            onClick={isMobile ? closeMenu : undefined}
+                            className="flex items-center gap-4 px-4 py-3 text-gray-600 rounded-xl hover:bg-gray-50 transition-all border border-gray-200 hover:border-gray-300">
                             <MdLogin className="text-xl" />
                             <span className="text-sm font-semibold">Sign in</span>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/register" onClick={isMobile ? closeMenu : undefined} className="flex items-center gap-4 px-4 py-3 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:shadow-indigo-300 transition-all transform active:scale-95 text-center justify-center">
+                        <Link
+                            href="/register"
+                            onClick={isMobile ? closeMenu : undefined}
+                            className="flex items-center gap-4 px-4 py-3 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:shadow-indigo-300 transition-all transform active:scale-95 text-center justify-center">
                             <VscSaveAs className="text-xl" />
                             <span className="text-sm font-semibold">Sign up</span>
                         </Link>
