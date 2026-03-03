@@ -43,11 +43,11 @@ const HowItWorkSection = () => {
                 {/* Steps Container */}
                 <div className="relative">
                     {/* Connecting Line (Desktop Only) */}
-                    <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 border-t-2 border-dashed border-gray-200 -translate-y-1/2 z-0" />
+                    <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 -translate-y-1/2 z-0" />
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
                         {steps?.map((step, index) => (
-                            <div key={index} className="flex flex-col items-center group border border-gray-200 py-4">
+                            <div key={index} className="flex flex-col items-center group border border-gray-200 py-4 bg-white">
 
                                 {/* Step Icon & Number */}
                                 <div className="relative mb-8">
@@ -61,7 +61,7 @@ const HowItWorkSection = () => {
 
                                 {/* Text Content */}
                                 <div className="text-center px-4">
-                                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors">
+                                    <h3 className="text-xl font-bold text-gray-900 mb-3 transition-colors">
                                         {step?.title}
                                     </h3>
                                     <p className="text-gray-500 leading-relaxed text-sm md:text-base">
