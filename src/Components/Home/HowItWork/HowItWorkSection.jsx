@@ -46,30 +46,30 @@ const HowItWorkSection = () => {
                     <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 border-t-2 border-dashed border-gray-200 -translate-y-1/2 z-0" />
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
-                        {steps.map((step, index) => (
-                            <div key={index} className="flex flex-col items-center group">
+                        {steps?.map((step, index) => (
+                            <div key={index} className="flex flex-col items-center group border border-gray-200 py-4">
 
                                 {/* Step Icon & Number */}
                                 <div className="relative mb-8">
-                                    <div className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-xl shadow-indigo-200 group-hover:rotate-6 transition-transform duration-300`}>
-                                        {step.icon}
+                                    <div className={`w-20 h-20 rounded-3xl bg-linear-to-br ${step.gradient} flex items-center justify-center`}>
+                                        {step?.icon}
                                     </div>
                                     <div className="absolute -top-4 -right-4 w-10 h-10 bg-white border-4 border-gray-50 rounded-full flex items-center justify-center shadow-md">
-                                        <span className="text-xs font-black text-gray-900">{step.number}</span>
+                                        <span className="text-xs font-black text-gray-900">{step?.number}</span>
                                     </div>
                                 </div>
 
                                 {/* Text Content */}
                                 <div className="text-center px-4">
                                     <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors">
-                                        {step.title}
+                                        {step?.title}
                                     </h3>
                                     <p className="text-gray-500 leading-relaxed text-sm md:text-base">
-                                        {step.description}
+                                        {step?.description}
                                     </p>
                                 </div>
 
-                                {/* Mobile Arrow (Visible only on mobile between cards) */}
+                                {/* Mobile Arrow */}
                                 {index < steps.length - 1 && (
                                     <div className="md:hidden mt-8 text-gray-300">
                                         <ArrowRight size={32} className="rotate-90" />
