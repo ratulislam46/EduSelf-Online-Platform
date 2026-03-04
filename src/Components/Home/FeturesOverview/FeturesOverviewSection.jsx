@@ -27,7 +27,7 @@ const FeaturesOverviewSection = () => {
   ];
 
   return (
-    <section className="py-24">
+    <section className="py-12">
       <div className="px-6 lg:px-8">
 
         {/* Section Header */}
@@ -45,7 +45,7 @@ const FeaturesOverviewSection = () => {
           {features?.map((feature, index) => (
             <div
               key={index}
-              className={`group relative p-8 rounded-3xl border border-gray-100 bg-white transition-all duration-300 hover:shadow-2xl hover:shadow-gray-200/50 hover:-translate-y-2 `}
+              className={`group relative p-8 border border-gray-200 bg-white transition-all duration-300 hover:shadow-2xl hover:shadow-gray-200/50 hover:-translate-y-2 `}
             >
               {/* Icon Container */}
               <div className={`w-14 h-14 ${feature.bgColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
