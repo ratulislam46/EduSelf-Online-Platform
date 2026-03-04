@@ -87,11 +87,11 @@ const DeptList = ({ allData }) => {
       {/* 3. Grid Display Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {filteredData?.length > 0 ? (
-          filteredData.map((dept) => (
+          filteredData?.map((dept) => (
             <div
               key={dept.id}
               onClick={() => setSelectedDept(dept)}
-              className="group relative h-[350px] cursor-pointer overflow-hidden rounded-2xl bg-gray-100 shadow-xl transition-all duration-500"
+              className="group relative h-87.5 cursor-pointer overflow-hidden rounded-2xl bg-gray-100 shadow-xl transition-all duration-500"
             >
               <Image
                 src={dept?.thumbnail}
@@ -101,10 +101,10 @@ const DeptList = ({ allData }) => {
                 priority={true}
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent opacity-80" />
 
-              <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full border border-white/30">
-                <span className="text-[10px] font-bold text-white uppercase tracking-widest">{dept.category}</span>
+              <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full border border-white/30 group-hover:bg-primary">
+                <span className="text-[10px] font-bold text-white uppercase tracking-widest">{dept?.category}</span>
               </div>
 
               <div className="absolute inset-0 flex flex-col justify-end p-8">
