@@ -42,7 +42,7 @@ const HowItWorkSection = () => {
 
                 {/* Steps Container */}
                 <div className="relative">
-                    {/* Connecting Line (Desktop Only) */}
+                    {/* Connecting Line  */}
                     <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 -translate-y-1/2 z-0" />
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
