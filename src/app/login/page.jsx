@@ -18,7 +18,7 @@ const LoginPage = () => {
     <div className="min-h-screen bg-white flex flex-col md:flex-row">
 
       {/* Left Side: Brand Identity (Hidden on Mobile) */}
-      <div className="hidden md:flex md:w-5/12 bg-gradient-to-br from-indigo-700 to-blue-800 p-12 flex-col justify-between text-white relative overflow-hidden">
+      <div className="hidden md:flex md:w-5/12 bg-linear-to-br from-indigo-700 to-blue-800 p-12 flex-col justify-between text-white relative overflow-hidden">
         <div className="relative z-10">
           <div className="flex items-center gap-2 mb-12">
             <div className="bg-white/15 p-2 rounded-xl backdrop-blur-lg border border-white/20">
@@ -42,7 +42,7 @@ const LoginPage = () => {
         <div className="absolute bottom-20 left-10 w-32 h-32 bg-indigo-400/20 rounded-full blur-2xl"></div>
 
         <div className="relative z-10">
-          
+
           <p className="text-sm text-indigo-200">Joined by 2,000+ students this semester.</p>
         </div>
       </div>
