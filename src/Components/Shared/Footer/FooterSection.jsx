@@ -5,11 +5,9 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 
-// ৩ডি ওয়েভ অ্যানিমেশন কম্পোনেন্ট
 const WaveBackground = () => {
   const meshRef = useRef();
 
-  // পার্টিকেল বা পয়েন্টগুলো তৈরি করা
   const count = 50;
   const [positions, step] = useMemo(() => {
     const positions = new Float32Array(count * count * 3);
@@ -24,13 +22,11 @@ const WaveBackground = () => {
     return [positions, step];
   }, []);
 
-  // অ্যানিমেশন লজিক
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
     let i = 0;
     for (let x = 0; x < count; x++) {
       for (let z = 0; z < count; z++) {
-        // সাইন ওয়েভ ম্যাথমেটিক্স
         const y = Math.sin(x * 0.3 + t) * 0.5 + Math.cos(z * 0.3 + t) * 0.5;
         meshRef.current.geometry.attributes.position.setY(i, y);
         i++;
@@ -57,7 +53,7 @@ const WaveBackground = () => {
 const FooterSection = () => {
   return (
     <footer className="relative bg-[#0a0a2e] text-white overflow-hidden">
-      {/* Three.js Canvas - এটি ব্যাকগ্রাউন্ড হিসেবে কাজ করবে */}
+      
       <div className="absolute inset-0 z-0 opacity-40">
         <Canvas camera={{ position: [0, 10, 20], fov: 75 }}>
           <ambientLight intensity={0.5} />
