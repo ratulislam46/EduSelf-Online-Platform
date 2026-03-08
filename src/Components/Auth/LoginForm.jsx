@@ -1,0 +1,172 @@
+"use client";
+
+import React, { useState } from 'react';
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { Mail, Lock, LogIn, ArrowRight, BookOpen } from 'lucide-react';
+
+const LoginForm = () => {
+  const router = useRouter();
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (error) setError('');
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    setIsLoading(true);
+
+    try {
+      const result = await signIn("credentials", {
+        email: formData.email,
+        password: formData.password,
+        redirect: false,
+      });
+
+      if (result?.error) {
+        setError(result.error || "Invalid credentials");
+        setIsLoading(false);
+        return;
+      }
+
+      // Redirect to books page on successful login
+      router.push("/books");
+      router.refresh();
+    } catch (err) {
+      setError("An unexpected error occurred. Please try again.");
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-white flex flex-col md:flex-row">
+      {/* Left Side: Brand Identity (Hidden on Mobile) */}
+      <div className="hidden md:flex md:w-5/12 bg-linear-to-br from-indigo-700 to-blue-800 p-12 flex-col justify-between text-white relative overflow-hidden">
+        <div className="relative z-10">
+          <div className="flex items-center gap-2 mb-12">
+            <div className="bg-white/15 p-2 rounded-xl backdrop-blur-lg border border-white/20">
+              <BookOpen size={28} />
+            </div>
+            <span className="text-2xl font-bold tracking-tight">EduSelf</span>
+          </div>
+
+          <div className="space-y-6">
+            <h1 className="text-4xl lg:text-5xl font-extrabold leading-tight">
+              Welcome Back to <br /> Your Digital Library.
+            </h1>
+            <p className="text-indigo-100 text-lg opacity-90 max-w-sm font-light">
+              Pick up right where you left off. Access your reading history and department resources in one click.
+            </p>
+          </div>
+        </div>
+
+        {/* Abstract Background Elements */}
+        <div className="absolute -top-12 -right-12 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-10 w-32 h-32 bg-indigo-400/20 rounded-full blur-2xl"></div>
+
+        <div className="relative z-10">
+          <p className="text-sm text-indigo-200">Joined by 2,000+ students this semester.</p>
+        </div>
+      </div>
+
+      {/* Right Side: Login Form */}
+      <div className="flex-1 flex items-center justify-center p-8 sm:p-16 lg:p-24">
+        <div className="w-full max-w-sm">
+          <div className="mb-10 text-center md:text-left">
+            <h2 className="text-3xl font-bold text-gray-900 tracking-tight">Sign In</h2>
+            <p className="text-gray-500 mt-3">Access your student dashboard and books.</p>
+          </div>
+
+          {error && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl">
+              <p className="text-red-600 text-sm font-semibold">{error}</p>
+            </div>
+          )}
+
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            {/* Email / ID Field */}
+            <div className="space-y-2">
+              <div className="flex justify-between items-center ml-1">
+                <label className="text-sm font-semibold text-gray-700">Email or Student ID</label>
+              </div>
+              <div className="relative group">
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-indigo-600 transition-colors" size={18} />
+                <input
+                  type="text"
+                  name="email"
+                  placeholder="name@university.edu"
+                  value={formData.email}
+                  onChange={handleChange}
+                  disabled={isLoading}
+                  className="w-full pl-12 pr-4 py-3.5 bg-gray-50 border border-gray-200 rounded-2xl outline-none focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-600 transition-all placeholder:text-gray-400 disabled:opacity-50 disabled:cursor-not-allowed"
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Password Field */}
+            <div className="space-y-2">
+              <div className="flex justify-between items-center ml-1">
+                <label className="text-sm font-semibold text-gray-700">Password</label>
+                <button type="button" className="text-xs font-bold hover:cursor-pointer text-indigo-600 hover:text-indigo-700 transition-colors">
+                  Forgot Password?
+                </button>
+              </div>
+              <div className="relative group">
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-indigo-600 transition-colors" size={18} />
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="••••••••"
+                  value={formData.password}
+                  onChange={handleChange}
+                  disabled={isLoading}
+                  className="w-full pl-12 pr-4 py-3.5 bg-gray-50 border border-gray-200 rounded-2xl outline-none focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-600 transition-all placeholder:text-gray-400 disabled:opacity-50 disabled:cursor-not-allowed"
+                  required
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="w-full bg-gray-900 hover:bg-black hover:cursor-pointer text-white font-bold py-4 rounded-2xl shadow-xl shadow-gray-200 transition-all flex items-center justify-center gap-3 group active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100"
+            >
+              {isLoading ? (
+                <>
+                  <span>Signing In...</span>
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                </>
+              ) : (
+                <>
+                  <span>Sign In to EduSelf</span>
+                  <LogIn size={20} className="group-hover:translate-x-1 transition-transform" />
+                </>
+              )}
+            </button>
+          </form>
+
+          <div className="mt-12 text-center">
+            <p className="text-gray-500 text-sm">
+              New to our library?
+              <a href="/register" className="ml-2 text-indigo-600 font-bold hover:underline inline-flex items-center gap-1 group">
+                Create an account
+                <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LoginForm;

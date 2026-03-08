@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/Components/Shared/Navbar/Navbar";
 import FooterSection from "@/Components/Shared/Footer/FooterSection";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,28 +23,29 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <AuthProvider>
+          <div className="flex flex-col lg:flex-row min-h-screen bg-gray-50">
 
-        <div className="flex flex-col lg:flex-row min-h-screen bg-gray-50">
+            {/* Navbar Section */}
+            <aside className="z-50 w-full lg:w-fit">
+              <Navbar />
+            </aside>
 
-          {/* Navbar Section */}
-          <aside className="z-50 w-full lg:w-fit">
-            <Navbar />
-          </aside>
+            {/* Main Content Section */}
+            <main className="flex-1 min-w-0">
+              <div className="p-4 md:p-8 lg:p-12">
+                <div className="container mx-auto">
+                  {children}
+                </div>
 
-          {/* Main Content Section */}
-          <main className="flex-1 min-w-0">
-            <div className="p-4 md:p-8 lg:p-12">
-              <div className="container mx-auto">
-                {children}
+                <footer className="container mx-auto">
+                  <FooterSection />
+                </footer>
               </div>
+            </main>
 
-              <footer className="container mx-auto">
-                <FooterSection />
-              </footer>
-            </div>
-          </main>
-
-        </div>
+          </div>
+        </AuthProvider>
       </body>
     </html>
   );

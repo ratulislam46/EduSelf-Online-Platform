@@ -1,123 +1,362 @@
-"use client"
-import React from 'react';
-import Image from 'next/image';
-import { User, BookOpen, LogOut, MapPin, Calendar, ChevronRight, Clock } from 'lucide-react';
-import Link from 'next/link';
+"use client";
+
+import React, { useState, useEffect } from 'react';
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { User, Mail, GraduationCap, Calendar, Lock, Save, ArrowLeft, BookOpen } from 'lucide-react';
 
 const ProfilePage = () => {
+  const { data: session, status, update } = useSession();
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    department: '',
+    year: '',
+    password: '',
+    confirmPassword: ''
+  });
 
-  const user = {
-    name: "Md Ratul Howlader",
-    email: "arfanratul46@gmail.com",
-    department: "Computer Science & Engineering",
-    year: "3rd Year",
-    avatar: "https://i.ibb.co.com/wrgNy3sg/profile.jpg",
-    readingHistory: [
-      { id: 1, title: "Deep Learning for Computer Vision", date: "2 hours ago" },
-      { id: 2, title: "Modern Operating Systems - 5th Ed", date: "Yesterday" },
-      { id: 3, title: "Introduction to Algorithms", date: "3 days ago" },
-    ]
+  useEffect(() => {
+    if (status === 'unauthenticated') {
+      router.push('/login');
+      return;
+    }
+    
+    if (session?.user) {
+      setFormData({
+        name: session.user.name || '',
+        department: session.user.department || '',
+        year: session.user.year || '',
+        password: '',
+        confirmPassword: ''
+      });
+    }
+  }, [session, status, router]);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (error) setError('');
+    if (success) setSuccess('');
   };
 
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    setError('');
+    setSuccess('');
+    setIsLoading(true);
+
+    // Validate password if provided
+    if (formData.password) {
+      if (formData.password !== formData.confirmPassword) {
+        setError('Passwords do not match');
+        setIsLoading(false);
+        return;
+      }
+      if (formData.password.length < 6) {
+        setError('Password must be at least 6 characters long');
+        setIsLoading(false);
+        return;
+      }
+    }
+
+    try {
+      const updateData = {
+        id: session.user.id,
+        name: formData.name,
+        department: formData.department,
+        year: formData.year,
+      };
+
+      // Only include password if it's being changed
+      if (formData.password) {
+        updateData.password = formData.password;
+      }
+
+      const response = await fetch('/api/auth/profile', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updateData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Update failed');
+      }
+
+      setSuccess('Profile updated successfully!');
+      setIsEditing(false);
+      
+      // Update the session
+      await update();
+      
+      // Clear password fields
+      setFormData(prev => ({
+        ...prev,
+        password: '',
+        confirmPassword: ''
+      }));
+    } catch (err) {
+      setError(err.message || 'An unexpected error occurred. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  if (status === 'loading') {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-12 h-12 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading your profile...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!session) {
+    return null;
+  }
+
   return (
-    <div className="min-h-screen bg-gray-50 p-4 md:p-8">
-      <div className="max-w-4xl mx-auto space-y-6">
+    <div className="max-w-4xl mx-auto">
+      {/* Header */}
+      <div className="mb-8">
+        <button
+          onClick={() => router.back()}
+          className="flex items-center gap-2 text-gray-600 hover:text-indigo-600 transition-colors mb-4"
+        >
+          <ArrowLeft size={20} />
+          <span className="font-semibold">Back</span>
+        </button>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="bg-indigo-100 p-3 rounded-xl">
+            <BookOpen size={28} className="text-indigo-600" />
+          </div>
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900">My Profile</h1>
+            <p className="text-gray-500">Manage your account information</p>
+          </div>
+        </div>
+      </div>
 
-        {/* Header / User Info Card */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-          {/* Banner */}
-          <div className="h-32 bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-500"></div>
+      {/* Success Message */}
+      {success && (
+        <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl">
+          <p className="text-green-600 text-sm font-semibold">{success}</p>
+        </div>
+      )}
 
-          <div className="px-6 pb-6">
-            <div className="relative flex justify-between items-end -mt-12">
-              {/* Avatar Modification with Next.js Image */}
-              <div className="relative w-24 h-24 rounded-2xl border-4 border-white shadow-xl overflow-hidden bg-gray-100">
-                <Image
-                  src={user.avatar}
-                  alt="Profile" fill sizes="96px" priority
-                  className="object-cover" />
+      {/* Error Message */}
+      {error && (
+        <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl">
+          <p className="text-red-600 text-sm font-semibold">{error}</p>
+        </div>
+      )}
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Profile Card */}
+        <div className="md:col-span-1">
+          <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+            <div className="text-center mb-6">
+              <div className="w-24 h-24 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-3xl font-bold">
+                {session.user.name?.charAt(0).toUpperCase() || 'U'}
               </div>
-
-              <Link
-                href='/login'
-                className="flex items-center gap-2 px-5 py-2.5 bg-red-50 text-red-600 rounded-xl hover:bg-red-100 hover:cursor-pointer transition-all font-bold text-sm active:scale-95">
-                <LogOut size={18} />
-                <span>Logout</span>
-              </Link>
+              <h2 className="text-xl font-bold text-gray-900">{session.user.name}</h2>
+              <p className="text-gray-500 text-sm">{session.user.studentId}</p>
             </div>
 
-            <div className="mt-6">
-              <h1 className="text-2xl md:text-3xl font-black text-gray-900">{user.name}</h1>
-              <p className="text-gray-500 font-medium">{user.email}</p>
-            </div>
-
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-2xl border border-transparent hover:border-blue-100 transition-colors">
-                <div className="p-2.5 bg-blue-100 text-blue-600 rounded-xl">
-                  <MapPin size={22} />
-                </div>
-                <div>
-                  <p className="text-[10px] text-gray-400 uppercase font-black tracking-widest">Department</p>
-                  <p className="text-sm font-bold text-gray-700">{user.department}</p>
-                </div>
+            <div className="space-y-4 pt-6 border-t border-gray-100">
+              <div className="flex items-center gap-3 text-gray-600">
+                <Mail size={18} className="text-indigo-600" />
+                <span className="text-sm">{session.user.email}</span>
               </div>
-
-              <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-2xl border border-transparent hover:border-purple-100 transition-colors">
-                <div className="p-2.5 bg-purple-100 text-purple-600 rounded-xl">
-                  <Calendar size={22} />
-                </div>
-                <div>
-                  <p className="text-[10px] text-gray-400 uppercase font-black tracking-widest">Academic Year</p>
-                  <p className="text-sm font-bold text-gray-700">{user.year}</p>
-                </div>
+              <div className="flex items-center gap-3 text-gray-600">
+                <GraduationCap size={18} className="text-indigo-600" />
+                <span className="text-sm">{session.user.department}</span>
+              </div>
+              <div className="flex items-center gap-3 text-gray-600">
+                <Calendar size={18} className="text-indigo-600" />
+                <span className="text-sm">Year {session.user.year}</span>
               </div>
             </div>
+
+            <button
+              onClick={() => setIsEditing(!isEditing)}
+              className="w-full mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl transition-all"
+            >
+              {isEditing ? 'Cancel' : 'Edit Profile'}
+            </button>
           </div>
         </div>
 
-        {/* Reading History Section */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
-          <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-indigo-50 text-indigo-600 rounded-lg">
-                <BookOpen size={24} />
-              </div>
-              <h2 className="text-xl font-black text-gray-900">Reading History</h2>
-            </div>
-            <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full uppercase tracking-tighter">
-              {user.readingHistory.length} Activities
-            </span>
-          </div>
+        {/* Profile Form */}
+        <div className="md:col-span-2">
+          <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              {isEditing ? 'Edit Your Information' : 'Account Information'}
+            </h3>
 
-          <div className="grid gap-4">
-            {user?.readingHistory?.map((item) => (
-              <div
-                key={item.id}
-                className="group flex items-center justify-between p-4 border border-gray-50 rounded-2xl hover:border-indigo-100 hover:bg-indigo-50/20 transition-all cursor-pointer"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 flex items-center justify-center bg-gray-50 rounded-xl group-hover:bg-white text-gray-400 group-hover:text-indigo-500 transition-all shadow-sm">
-                    <User size={22} />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-800 group-hover:text-indigo-700 transition-colors">{item.title}</h3>
-                    <p className="text-xs text-gray-400 font-medium flex items-center gap-1">
-                      <Clock size={12} /> {item.date}
-                    </p>
-                  </div>
-                </div>
-                <div className="text-gray-300 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all">
-                  <ChevronRight size={24} />
+            <form onSubmit={handleUpdate} className="space-y-6">
+              {/* Full Name */}
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-gray-700 ml-1">Full Name</label>
+                <div className="relative group">
+                  <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    disabled={!isEditing || isLoading}
+                    className={`w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:bg-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all ${!isEditing ? 'cursor-not-allowed opacity-60' : ''}`}
+                  />
                 </div>
               </div>
-            ))}
-          </div>
 
-          <button className="w-full mt-8 py-4 text-sm font-bold text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-2xl transition-all border border-dashed border-gray-200 hover:border-indigo-200 hover:cursor-pointer">
-            View All History
-          </button>
+              {/* Email (Read-only) */}
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-gray-700 ml-1">Email / Student ID</label>
+                <div className="relative">
+                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+                  <input
+                    type="text"
+                    value={session.user.studentId}
+                    disabled
+                    className="w-full pl-12 pr-4 py-3 bg-gray-100 border border-gray-200 rounded-xl outline-none cursor-not-allowed opacity-60"
+                  />
+                </div>
+                <p className="text-xs text-gray-500 ml-1">Student ID cannot be changed</p>
+              </div>
+
+              {/* Department & Year */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-gray-700 ml-1">Department</label>
+                  <div className="relative">
+                    <GraduationCap className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+                    <select
+                      name="department"
+                      value={formData.department}
+                      onChange={handleChange}
+                      disabled={!isEditing || isLoading}
+                      className={`w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none appearance-none focus:bg-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all text-gray-600 ${!isEditing ? 'cursor-not-allowed opacity-60' : ''}`}
+                    >
+                      <option value="">Select Dept</option>
+                      <option value="CSC">CSC</option>
+                      <option value="BSC">BSC</option>
+                      <option value="BBA">BBA</option>
+                      <option value="BSS">BSS</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-gray-700 ml-1">Year</label>
+                  <div className="relative">
+                    <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+                    <select
+                      name="year"
+                      value={formData.year}
+                      onChange={handleChange}
+                      disabled={!isEditing || isLoading}
+                      className={`w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none appearance-none focus:bg-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all text-gray-600 ${!isEditing ? 'cursor-not-allowed opacity-60' : ''}`}
+                    >
+                      <option value="">Select Year</option>
+                      <option value="1">1st Year</option>
+                      <option value="2">2nd Year</option>
+                      <option value="3">3rd Year</option>
+                      <option value="4">4th Year</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              {/* Change Password Section (only when editing) */}
+              {isEditing && (
+                <>
+                  <div className="pt-6 border-t border-gray-200">
+                    <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                      <Lock size={20} className="text-indigo-600" />
+                      Change Password
+                    </h4>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-sm font-semibold text-gray-700 ml-1">New Password</label>
+                      <div className="relative">
+                        <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+                        <input
+                          type="password"
+                          name="password"
+                          value={formData.password}
+                          onChange={handleChange}
+                          placeholder="Leave blank to keep current"
+                          disabled={isLoading}
+                          className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:bg-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-sm font-semibold text-gray-700 ml-1">Confirm Password</label>
+                      <div className="relative">
+                        <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+                        <input
+                          type="password"
+                          name="confirmPassword"
+                          value={formData.confirmPassword}
+                          onChange={handleChange}
+                          placeholder="Confirm new password"
+                          disabled={isLoading}
+                          className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:bg-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {/* Action Buttons */}
+              {isEditing && (
+                <div className="pt-6 border-t border-gray-200 flex gap-4">
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-indigo-200 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isLoading ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        <span>Saving...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Save size={20} />
+                        <span>Save Changes</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              )}
+            </form>
+
+            {!isEditing && (
+              <div className="mt-6 p-4 bg-indigo-50 border border-indigo-100 rounded-xl">
+                <p className="text-indigo-700 text-sm">
+                  Click the &quot;Edit Profile&quot; button to update your information
+                </p>
+              </div>
+            )}
+          </div>
         </div>
-
       </div>
     </div>
   );
