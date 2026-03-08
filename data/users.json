@@ -9,5 +9,16 @@
     "password": "$2b$12$MshgKk9CwndQLCRKgIhVOOK2v0lc30RbsbNk.AbEToGHxkwXMxXc.",
     "role": "student",
     "createdAt": "2026-03-08T09:16:50.420Z"
+  },
+  {
+    "id": "1772962055355",
+    "name": "Hamim Hossain",
+    "email": "hamim@gmail.com",
+    "studentId": "hamim@gmail.com",
+    "department": "BBA",
+    "year": "3",
+    "password": "$2b$12$W80GZHuxEjV1gMligKRj8.IYvBuOpCbWkyz3FLFMI2XuaB6apRCoy",
+    "role": "student",
+    "createdAt": "2026-03-08T09:27:35.355Z"
   }
 ]

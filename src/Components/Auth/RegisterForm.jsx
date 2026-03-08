@@ -13,6 +13,8 @@ const RegisterForm = () => {
     year: '',
     password: ''
   });
+  // console.log("Form Data:", formData);
+
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -36,8 +38,10 @@ const RegisterForm = () => {
       });
 
       const data = await response.json();
+      console.log("Data:", data);
 
       if (!response.ok) {
+        console.log('Register failed');
         throw new Error(data.error || 'Registration failed');
       }
 
