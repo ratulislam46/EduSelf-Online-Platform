@@ -48,7 +48,7 @@ const LoginForm = () => {
 
   return (
     <div className="min-h-screen bg-white flex flex-col md:flex-row">
-      {/* Left Side: Brand Identity (Hidden on Mobile) */}
+      {/* Left Side: Brand Identity Hidden on Mobile */}
       <div className="hidden md:flex md:w-5/12 bg-linear-to-br from-indigo-700 to-blue-800 p-12 flex-col justify-between text-white relative overflow-hidden">
         <div className="relative z-10">
           <div className="flex items-center gap-2 mb-12">
