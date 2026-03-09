@@ -27,8 +27,8 @@ const HowItWorkSection = () => {
     ];
 
     return (
-        <section className="py-24 bg-gray-50 overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <section className="py-12">
+            <div className="px-6 lg:px-8">
 
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-20">

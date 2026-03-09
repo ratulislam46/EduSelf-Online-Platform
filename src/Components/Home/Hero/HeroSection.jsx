@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link'; // Next.js navigation এর জন্য
+import Link from 'next/link'; 
 import { BookOpen, ArrowRight, Sparkles, ChevronRight } from 'lucide-react';
 
 const HeroSection = () => {
@@ -25,7 +25,7 @@ const HeroSection = () => {
         {/* Responsive Main Heading */}
         <h1 className="text-4xl sm:text-6xl md:text-8xl font-black text-gray-900 tracking-tight mb-8 leading-[1.1]">
           Unleash Knowledge with <br />
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-500">
+          <span className="bg-clip-text text-transparent bg-linear-to-r from-indigo-600 via-blue-600 to-cyan-500">
             EduSelf Digital
           </span>
         </h1>
@@ -38,14 +38,14 @@ const HeroSection = () => {
         {/* Interactive Buttons (CTAs) */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-5 px-4">
           <Link href="/books" className="w-full sm:w-auto">
-            <button className="w-full px-10 py-5 bg-gray-900 text-white rounded-[1.5rem] font-bold flex items-center justify-center gap-3 hover:bg-indigo-600 hover:shadow-[0_20px_50px_rgba(79,70,229,0.3)] transition-all group active:scale-95 cursor-pointer">
+            <button className="w-full px-10 py-5 bg-gray-900 text-white rounded-3xl font-bold flex items-center justify-center gap-3 hover:bg-indigo-600 hover:shadow-[0_20px_50px_rgba(79,70,229,0.3)] transition-all group active:scale-95 cursor-pointer">
               Start Reading
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </button>
           </Link>
 
           <Link href="/books" className="w-full sm:w-auto">
-            <button className="w-full px-10 py-5 bg-white text-gray-700 border-2 border-gray-100 rounded-[1.5rem] font-bold flex items-center justify-center gap-2 hover:bg-gray-50 hover:border-gray-200 transition-all active:scale-95 cursor-pointer">
+            <button className="w-full px-10 py-5 bg-white text-gray-700 border-2 border-gray-100 rounded-3xl font-bold flex items-center justify-center gap-2 hover:bg-gray-50 hover:border-gray-200 transition-all active:scale-95 cursor-pointer">
               Explore Departments
               <ChevronRight size={20} className="text-gray-400" />
             </button>
@@ -64,7 +64,7 @@ const HeroSection = () => {
               />
 
               {/* Overlay on Image for Polish */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent pointer-events-none" />
             </div>
           </div>
 
