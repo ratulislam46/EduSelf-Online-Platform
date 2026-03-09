@@ -47,7 +47,7 @@ const HowItWorkSection = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
                         {steps?.map((step, index) => (
-                            <div key={index} className="flex flex-col items-center group border border-gray-200 py-4 bg-white">
+                            <div key={index} className="flex flex-col items-center group border border-gray-200 py-4 bg-white transition-all duration-300 hover:shadow-2xl hover:shadow-gray-200/50 hover:-translate-y-2 hover:border-primary">
 
                                 {/* Step Icon & Number */}
                                 <div className="relative mb-8">
