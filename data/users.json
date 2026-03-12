@@ -20,5 +20,16 @@
     "password": "$2b$12$W80GZHuxEjV1gMligKRj8.IYvBuOpCbWkyz3FLFMI2XuaB6apRCoy",
     "role": "student",
     "createdAt": "2026-03-08T09:27:35.355Z"
+  },
+  {
+    "id": "1773337384664",
+    "name": "Scarlett Barlow",
+    "email": "Animi magna ea elit",
+    "studentId": "Animi magna ea elit",
+    "department": "BBA",
+    "year": "1",
+    "password": "$2b$12$a8pIT.ItoIvZLGCqqLnA0uLOZOWS0J6OPFvjgC6JkTmNQgNBXayES",
+    "role": "student",
+    "createdAt": "2026-03-12T17:43:04.664Z"
   }
 ]

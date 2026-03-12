@@ -138,7 +138,7 @@ const LoginForm = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-gray-900 hover:bg-black hover:cursor-pointer text-white font-bold py-4 rounded-2xl shadow-xl shadow-gray-200 transition-all flex items-center justify-center gap-3 group active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100"
+              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-indigo-200 transition-all flex items-center justify-center gap-2 group mt-4 hover:cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-indigo-600"
             >
               {isLoading ? (
                 <>
