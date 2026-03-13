@@ -35,7 +35,7 @@ const HeroSection = () => {
           All your department's yearbooks are now in one place. Read, learn, and advance yourself with thousands of curated resources anytime, on any device.
         </p>
 
-        {/* Interactive Buttons (CTAs) */}
+        {/* Interactive Buttons  */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-5 px-4">
           <Link href="/books" className="w-full sm:w-auto">
             <button className="w-full px-10 py-5 bg-gray-900 text-white rounded-3xl font-bold flex items-center justify-center gap-3 hover:bg-indigo-600 hover:shadow-[0_20px_50px_rgba(79,70,229,0.3)] transition-all group active:scale-95 cursor-pointer">
@@ -63,7 +63,7 @@ const HeroSection = () => {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
 
-              {/* Overlay on Image for Polish */}
+              {/* Overlay on Image */}
               <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent pointer-events-none" />
             </div>
           </div>
