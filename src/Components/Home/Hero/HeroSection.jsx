@@ -32,7 +32,7 @@ const HeroSection = () => {
 
         {/* Tagline */}
         <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-gray-500 mb-12 leading-relaxed font-medium px-4">
-          All your department's yearbooks are now in one place. Read, learn, and advance yourself with thousands of curated resources anytime, on any device.
+          All your departments yearbooks are now in one place. Read, learn, and advance yourself with thousands of curated resources anytime, on any device.
         </p>
 
         {/* Interactive Buttons  */}
