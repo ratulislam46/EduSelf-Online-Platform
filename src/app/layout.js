@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
                   {children}
                 </div>
 
-                <footer className="container mx-auto">
+                <footer className="container mx-auto mt-20">
                   <FooterSection />
                 </footer>
               </div>
