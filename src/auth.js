@@ -9,7 +9,6 @@ const getUsers = () => {
   const filePath = path.join(process.cwd(), "data", "users.json");
   
   if (!fs.existsSync(filePath)) {
-    // Create directory and file if they don't exist
     const dir = path.dirname(filePath);
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
@@ -21,7 +20,6 @@ const getUsers = () => {
   return JSON.parse(data);
 };
 
-// Helper function to save users to JSON file
 const saveUser = (user) => {
   const filePath = path.join(process.cwd(), "data", "users.json");
   const users = getUsers();
@@ -29,7 +27,6 @@ const saveUser = (user) => {
   fs.writeFileSync(filePath, JSON.stringify(users, null, 2));
 };
 
-// Helper function to find user by email or student ID
 const findUser = (identifier) => {
   const users = getUsers();
   return users.find(
@@ -63,7 +60,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           throw new Error("Invalid credentials");
         }
 
-        // Return user object without password
         return {
           id: user.id,
           name: user.name,
@@ -103,7 +99,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
   session: {
     strategy: "jwt",
-    maxAge: 30 * 24 * 60 * 60, // 30 days
+    maxAge: 30 * 24 * 60 * 60, 
   },
   secret: process.env.NEXTAUTH_SECRET,
 });
