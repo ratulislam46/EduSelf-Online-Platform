@@ -66,14 +66,13 @@ const ProfilePage = () => {
     try {
       const updateData = {
         id: session.user.id,
-        name: formData.name,
-        department: formData.department,
-        year: formData.year,
+        name: formData?.name,
+        department: formData?.department,
+        year: formData?.year,
       };
 
-      // Only include password if it's being changed
-      if (formData.password) {
-        updateData.password = formData.password;
+      if (formData?.password) {
+        updateData.password = formData?.password;
       }
 
       const response = await fetch('/api/auth/profile', {
